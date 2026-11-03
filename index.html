@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aitarget - идут восстановительные работы</title>
+<meta name="description" content="Сервис временно недоступен из-за аварии у хостинг-провайдера. Реклама в кабинетах продолжает работать.">
+<meta name="robots" content="noindex">
+<!--
+  Страница-заглушка на время аварии. Один файл, без внешних загрузок: шрифты
+  системные, логотип встроен - чтобы открывалась быстро и не зависела от сервера,
+  который лежит. Дату внизу править руками при каждом обновлении статуса.
+-->
+<style>
+  :root {
+    --ink: #16212E; --muted: #5B6776; --canvas: #EBEFF4; --surface: #FFFFFF;
+    --signal: #0EA5A0; --signal-deep: #0B7E7A; --line: #E3E8EF;
+    --attention: #C2740A; --attention-bg: #FFF6E6;
+    --radius: 16px; --r-sm: 10px;
+    --shadow: 0 1px 2px rgba(16,33,46,.05), 0 6px 18px rgba(16,33,46,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #E8EDF3; --muted: #9AA7B6; --canvas: #0F1720; --surface: #16212E;
+      --line: #22303F; --attention-bg: #2A2112;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 18px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #E8EDF3; --muted: #9AA7B6; --canvas: #0F1720; --surface: #16212E;
+    --line: #22303F; --attention-bg: #2A2112;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; background: var(--canvas); color: var(--ink);
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px; line-height: 1.55;
+    display: flex; align-items: center; justify-content: center;
+    padding: 32px 16px;
+  }
+  .card {
+    width: 100%; max-width: 560px; background: var(--surface);
+    border: 1px solid var(--line); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 32px 28px;
+  }
+  .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+  .logo svg { width: 44px; height: 44px; flex: none; }
+  .logo-name { font-size: 20px; font-weight: 700; letter-spacing: -.02em; }
+  .logo-sub { font-size: 12px; color: var(--muted); }
+  h1 { font-size: 24px; line-height: 1.25; letter-spacing: -.02em; margin: 0 0 12px; }
+  p { margin: 0 0 14px; }
+  .muted { color: var(--muted); font-size: 13px; }
+  .note {
+    border-left: 3px solid var(--attention); background: var(--attention-bg);
+    border-radius: var(--r-sm); padding: 12px 14px; margin: 18px 0; font-size: 14px;
+  }
+  .note b { color: var(--attention); }
+  .ok {
+    border-left: 3px solid var(--signal); background: rgba(14,165,160,.08);
+    border-radius: var(--r-sm); padding: 12px 14px; margin: 18px 0; font-size: 14px;
+  }
+  .ok b { color: var(--signal-deep); }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .ok b { color: var(--signal); }
+  }
+  .foot {
+    margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line);
+    display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline;
+  }
+  a { color: var(--signal-deep); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) a { color: var(--signal); } }
+  @media (max-width: 420px) { .card { padding: 24px 18px; } h1 { font-size: 21px; } }
+</style>
+</head>
+<body>
+  <main class="card">
+    <div class="logo">
+      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Aitarget">
+        <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#14BAB2"/><stop offset="1" stop-color="#0B7E7A"/>
+        </linearGradient></defs>
+        <rect width="32" height="32" rx="7.5" fill="url(#g)"/>
+        <g fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round">
+          <circle cx="16" cy="16" r="8.4"/>
+          <path d="M16 3v4.2M16 24.8v4.2M3 16h4.2M24.8 16h4.2"/>
+        </g>
+        <circle cx="16" cy="16" r="2.5" fill="#fff"/>
+      </svg>
+      <div>
+        <div class="logo-name">Aitarget</div>
+        <div class="logo-sub">Реклама под присмотром ИИ</div>
+      </div>
+    </div>
+
+    <h1>Идут восстановительные работы</h1>
+
+    <p>
+      Сервис временно недоступен: на стороне нашего хостинг-провайдера произошла авария,
+      затронувшая сразу много клиентов. Мы восстанавливаем работу.
+    </p>
+
+    <div class="ok">
+      <b>Ваша реклама продолжает работать.</b> Кампании крутятся в Яндекс.Директе, VK и на
+      других площадках - они от нашего сервиса не зависят. Недоступен только личный кабинет.
+    </div>
+
+    <div class="note">
+      <b>Что пока не работает:</b> автоматическая защита бюджета и уведомления. Если у вас
+      включено автоматическое управление, кампании идут по последним заданным настройкам.
+      При больших бюджетах есть смысл заглянуть в кабинет площадки напрямую.
+    </div>
+
+    <p class="muted">
+      Резервные копии данных хранятся отдельно от пострадавших серверов. Как только доступ
+      вернётся, кабинет откроется с вашими кампаниями и историей расходов.
+    </p>
+
+    <div class="foot">
+      <span class="muted">Вопросы: <a href="mailto:info@uniagency.top">info@uniagency.top</a></span>
+      <span class="muted">Обновлено: 4 ноября 2026</span>
+    </div>
+  </main>
+</body>
+</html>
